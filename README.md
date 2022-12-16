@@ -1,1 +1,1 @@
-# Webfejlesztes
+# Webfejlesztés projekt
