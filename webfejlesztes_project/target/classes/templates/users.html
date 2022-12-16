@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View Users</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center pt-3">
+  <div class="mb-4"><h1>List of Users</h1></div>
+  <div class="mt-4 mb-3">
+    <button type="button" class="btn btn-secondary" onclick="logOut()">LOG OUT</button>
+  </div>
+  <div>
+    <div th:if="${message}" class="alert alert-success text-center">
+      [[${message}]]
+    </div>
+  </div>
+  <div>
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>FIRST NAME</th>
+          <th>LAST NAME</th>
+          <th>USERNAME</th>
+          <th>E-MAIL</th>
+        </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="user : ${listUsers}">
+        <tr>
+          <td>[[${user.id}]]</td>
+          <td>[[${user.firstName}]]</td>
+          <td>[[${user.lastName}]]</td>
+          <td>[[${user.username}]]</td>
+          <td>[[${user.email}]]</td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script type="text/javascript">
+  function logOut(){
+    window.location= "[[@{/logout}]]";
+  }
+</script>
+</body>
+</html>
